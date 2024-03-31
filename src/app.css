@@ -1,26 +1,46 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
 }
 
 body {
   background-color: hsl(240, 80%, 20%);
-  display: flex;
   margin: 0;
+}
+
+#app {
+  display: flex;
   justify-content: flex-end;
+  flex-direction: row;
 }
 
 .sidebar-item {
+  display: flex;
   background-image: linear-gradient(#fff, hsl(90, 70%, 80%));
-  margin: 10px;
-  padding: 5px;
+  margin: 5px;
+  padding: 8px;
   border-radius: 5px;
+}
+
+.sidebar-item.priority {
+  background-image: linear-gradient(#fff, hsl(50, 70%, 80%));
+}
+
+.editor {
+  flex: 1;
+  margin: 5px;
+  padding-right: 50px;
+}
+
+.editor h1,
+.editor h2,
+.editor h3 {
+  color: #fff;
+}
+
+.editor textarea {
+  display: block;
+  width: 100%;
+  height: 8em;
 }
 
 .right-column {

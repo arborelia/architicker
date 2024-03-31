@@ -2,6 +2,8 @@
   import svelteLogo from "./assets/svelte.svg";
   import viteLogo from "/vite.svg";
   import Counter from "./lib/Counter.svelte";
+  import { flip } from "svelte/animate";
+  import { fade } from "svelte/transition";
 
   let priorityTextBox: string = "Item 1";
   let priorityTextSaved: string = priorityTextBox;
@@ -30,12 +32,14 @@
   <button style="padding: 5px;" on:click={updateNormalItems}>Update</button>
 </div>
 <div class="right-column">
-  {#each priorityItems as item}
-    <div class="sidebar-item priority">{item}</div>
-  {/each}
-  {#each normalItems as item}
-    <div class="sidebar-item">{item}</div>
-  {/each}
+  <ul class="sidebar-items">
+    {#each priorityItems as item (item)}
+      <li transition:fade animate:flip class="priority-item">{item}</li>
+    {/each}
+    {#each normalItems as item (item)}
+      <li transition:fade animate:flip class="normal-item">{item}</li>
+    {/each}
+  </ul>
 </div>
 
 <style>

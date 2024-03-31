@@ -13,15 +13,18 @@ body {
   flex-direction: row;
 }
 
-.sidebar-item {
+.sidebar-items li {
   display: flex;
-  background-image: linear-gradient(#fff, hsl(90, 70%, 80%));
   margin: 5px;
   padding: 8px;
   border-radius: 5px;
 }
 
-.sidebar-item.priority {
+.sidebar-items .normal-item {
+  background-image: linear-gradient(#fff, hsl(90, 70%, 80%));
+}
+
+.sidebar-items .priority-item {
   background-image: linear-gradient(#fff, hsl(50, 70%, 80%));
 }
 

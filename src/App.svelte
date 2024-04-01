@@ -1,7 +1,4 @@
 <script lang="ts">
-  import svelteLogo from "./assets/svelte.svg";
-  import viteLogo from "/vite.svg";
-  import Counter from "./lib/Counter.svelte";
   import { flip } from "svelte/animate";
   import { fade } from "svelte/transition";
 
@@ -22,14 +19,17 @@
   }
 </script>
 
-<div class="editor" style="flex: 1">
+<div class="editor">
+  <h2>Archipelago connection</h2>
+  <form class="ap-form"></form>
+
   <h2>Priority items</h2>
   <textarea bind:value={priorityTextBox} />
-  <button style="padding: 5px;" on:click={updatePriorityItems}>Update</button>
+  <button on:click={updatePriorityItems}>Update</button>
 
   <h2>Normal items</h2>
   <textarea bind:value={normalTextBox} />
-  <button style="padding: 5px;" on:click={updateNormalItems}>Update</button>
+  <button on:click={updateNormalItems}>Update</button>
 </div>
 <div class="right-column">
   <ul class="sidebar-items">

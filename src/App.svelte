@@ -1,14 +1,22 @@
 <script lang="ts">
   import { flip } from "svelte/animate";
-  import { fade } from "svelte/transition";
+  import { fade, fly, slide } from "svelte/transition";
 
+  function makeItems(text: string): string[] {
+    if (text) {
+      return text.split("\n");
+    } else {
+      return [];
+    }
+  }
+  
   let priorityTextBox: string = "Item 1";
   let priorityTextSaved: string = priorityTextBox;
-  $: priorityItems = priorityTextSaved.split("\n");
+  $: priorityItems = makeItems(priorityTextSaved);
 
   let normalTextBox: string = "Item 2";
   let normalTextSaved: string = normalTextBox;
-  $: normalItems = normalTextSaved.split("\n");
+  $: normalItems = makeItems(normalTextSaved);
 
   function updatePriorityItems() {
     priorityTextSaved = priorityTextBox;
@@ -34,10 +42,10 @@
 <div class="right-column">
   <ul class="sidebar-items">
     {#each priorityItems as item (item)}
-      <li transition:fade animate:flip class="priority-item">{item}</li>
+      <li transition:fly={{ y: -50, duration: 1000}} animate:flip class="priority-item">{item}</li>
     {/each}
     {#each normalItems as item (item)}
-      <li transition:fade animate:flip class="normal-item">{item}</li>
+      <li transition:fly animate:flip class="normal-item">{item}</li>
     {/each}
   </ul>
 </div>
